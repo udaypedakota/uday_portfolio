@@ -81,14 +81,12 @@ document.querySelectorAll('.about-card, .skill-category, .project-card, .timelin
 // ===== CONTACT FORM =====
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Message Sent! ✓';
-  btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-  setTimeout(() => {
-    btn.innerHTML = "Send Message <i class='bx bx-send'></i>";
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+  const name = document.getElementById('contactName').value;
+  const email = document.getElementById('contactEmail').value;
+  const subject = document.getElementById('contactSubject').value;
+  const message = document.getElementById('contactMessage').value;
+  const text = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+  window.open(`https://wa.me/919908660573?text=${text}`, '_blank');
 });
 
 // ===== HIRE ME BUTTON =====
