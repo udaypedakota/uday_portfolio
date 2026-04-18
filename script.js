@@ -81,12 +81,13 @@ document.querySelectorAll('.about-card, .skill-category, .project-card, .timelin
 // ===== CONTACT FORM =====
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const name = document.getElementById('contactName').value;
-  const email = document.getElementById('contactEmail').value;
-  const subject = document.getElementById('contactSubject').value;
-  const message = document.getElementById('contactMessage').value;
-  const text = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
-  window.open(`https://wa.me/919908660573?text=${text}`, '_blank');
+  const sanitize = str => str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const name = sanitize(document.getElementById('contactName').value);
+  const email = sanitize(document.getElementById('contactEmail').value);
+  const subject = sanitize(document.getElementById('contactSubject').value);
+  const message = sanitize(document.getElementById('contactMessage').value);
+  const text = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`);
+  window.open(`https://wa.me/919908660573?text=${text}`, '_blank', 'noopener,noreferrer');
 });
 
 // ===== HIRE ME BUTTON =====
