@@ -568,6 +568,10 @@ img { max-width: 100%; }
 
 /* Tablet (768px - 1024px) */
 @media (max-width: 1024px) {
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--bg2); padding: 20px; gap: 16px; border-bottom: 1px solid var(--border); }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+  .hire-btn { display: none; }
   .hero { flex-direction: column; text-align: center; padding-top: 100px; }
   .hero-content { max-width: 100%; }
   .hero-btns, .hero-socials { justify-content: center; }
