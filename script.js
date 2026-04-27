@@ -1,4 +1,14 @@
-// ===== LOADER =====
+// ===== DYNAMIC EXPERIENCE =====
+const joinDate = new Date('2022-05-02');
+const now = new Date();
+let expYears = now.getFullYear() - joinDate.getFullYear();
+let expMonths = now.getMonth() - joinDate.getMonth();
+if (expMonths < 0) { expYears--; expMonths += 12; }
+const expStr = expMonths > 0 ? `${expYears}.${expMonths}` : `${expYears}`;
+const expFull = `${expYears} Year${expYears !== 1 ? 's' : ''} ${expMonths} Month${expMonths !== 1 ? 's' : ''}`;
+document.querySelectorAll('.exp-dynamic').forEach(el => el.textContent = expStr + ' Years');
+document.querySelectorAll('.exp-dynamic-full').forEach(el => el.textContent = expFull);
+
 window.addEventListener('load', () => {
   document.getElementById('loader').classList.add('hidden');
 });
