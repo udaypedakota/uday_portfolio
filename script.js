@@ -8,6 +8,7 @@ const expStr = expMonths > 0 ? `${expYears}.${expMonths}` : `${expYears}`;
 const expFull = `${expYears} Year${expYears !== 1 ? 's' : ''} ${expMonths} Month${expMonths !== 1 ? 's' : ''}`;
 document.querySelectorAll('.exp-dynamic').forEach(el => el.textContent = expStr + ' Years');
 document.querySelectorAll('.exp-dynamic-full').forEach(el => el.textContent = expFull);
+document.querySelectorAll('.exp-hero').forEach(el => el.textContent = expStr + '+');
 
 window.addEventListener('load', () => {
   document.getElementById('loader').classList.add('hidden');
